@@ -1,6 +1,6 @@
-require 'factory_girl'
+require 'rails_helper'
 
-describe 'Movies API' do
+describe 'Bitmoji Slack Commands API' do
   describe 'GET /commands' do
     it 'returns all the commands' do
       FactoryGirl.create :command, name: 'batman'
