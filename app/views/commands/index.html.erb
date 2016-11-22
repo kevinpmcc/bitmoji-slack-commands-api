@@ -1,0 +1,30 @@
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+<ul id='command-list'>
+  <% Command.all.each do |command| %>
+    <li class='command-item'>
+      <h4 id="command-name"><%= command.name %></h4>
+      <img src=<%= command.img_url %> />
+    </li>
+  <% end %>
+</ul>
+<script>
+function myFunction() {
+  console.log('something')
+    // Declare variables
+    var input, filter, ul, li, h4, i;
+    input = document.getElementById('myInput');
+    filter = input.value;
+    ul = document.getElementById("command-list");
+    li = ul.getElementsByTagName('li');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+          var name = li[i].getElementsByTagName("h4");
+        if (name[0].innerHTML.indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
