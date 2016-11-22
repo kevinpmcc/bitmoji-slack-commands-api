@@ -12,6 +12,7 @@ var AllCommands = React.createClass({
     return (
         <div key={command.id}>
           <h1>{command.name}</h1>
+          <img src={command.img_url} />
         </div>
         )
   }

@@ -1,20 +1,8 @@
 
-
-class BitmojiCommand
-  attr_reader :command, :img_url
-
-  def initialize(command:, img_url:)
-    @command = command
-    @img_url = img_url
-  end
-end
-
-
 require 'capybara/dsl'
 require 'selenium-webdriver'
 require 'pry'
 
-class InputAndScrapeSlack(commands)
 include Capybara::DSL
 
 commands =  ['batman',
