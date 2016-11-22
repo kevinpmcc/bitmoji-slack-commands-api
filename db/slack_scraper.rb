@@ -1,14 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-#
-#
+
 require 'capybara/dsl'
 require 'selenium-webdriver'
+require 'pry'
 
 include Capybara::DSL
 
@@ -81,20 +74,27 @@ Capybara.default_driver = :selenium
 
 visit 'https://friendsforever-world.slack.com/'
 fill_in 'email', with: 'kevinpatrickmccarthy@gmail.com'
-fill_in 'password', with: ENV['SLACK_PASSWORD']
+fill_in 'password', with: 'isthisokay'
 find('button.btn_large').click
-sleep(10)
+find('#message-input', wait: 1500, match: :first)
+
 commands.each { |command|
 fill_in 'message-input', with: '/bitmoji ' + command
 find('#message-input').native.send_keys :enter
-sleep(30)
+find('.msg_inline_img_container', wait: 1500, match: :first)
+sleep(5)
 
-within all('.msg_inline_img_holder').last do 
-        element = find('a')
-        Command.create(name: command, img_url: element[:'data-referer-original-href']) 
+within all('.msg_inline_img_container').last do 
+        element = find('img') 
+        @command_object = BitmojiCommand.new(command: command, img_url: element[:src]) 
 end
 
+puts @command_object.command
+puts @command_object.img_url
 
 }
+
+
+
 
 
