@@ -87,11 +87,11 @@ sleep(10)
 commands.each { |command|
 fill_in 'message-input', with: '/bitmoji ' + command
 find('#message-input').native.send_keys :enter
-sleep(30)
+sleep(10)
 
 within all('.msg_inline_img_holder').last do 
-        element = find('a')
-        Command.create(name: command, img_url: element[:'data-referer-original-href']) 
+        #element = find('a')
+        #Command.create(name: command, img_url: element[:'data-referer-original-href']) 
 end
 
 

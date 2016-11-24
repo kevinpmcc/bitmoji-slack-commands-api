@@ -14,9 +14,7 @@
  *= require_self
  */
 
-#container {
-  margin: auto 0;
-}
+
 
 li {
   display: inline;
@@ -32,4 +30,17 @@ ul {
   margin-bottom: 10px;
   width: 5em;
   height: 8em;
+}
+
+#myInput {
+  font-size: 200%;
+  display: block;
+  height: 200%;
+	width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: none;
+  border-bottom: 3px solid grey;
+	/*position: static;*/
 }
