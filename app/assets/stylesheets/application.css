@@ -14,7 +14,17 @@
  *= require_self
  */
 
+/*.appear {*/
+  /*display: none;*/
+  /*z-index: 10000;*/
+  /*font-size: 12px;*/
+  /*background-color: black;*/
+  /*color: white;*/
+/*}*/
 
+/*.card:hover .appear {*/
+    /*display: inline;*/
+/*}*/
 
 li {
   display: inline;
@@ -30,17 +40,30 @@ ul {
   margin-bottom: 10px;
   width: 5em;
   height: 8em;
+  display: relative;
 }
+
+.btn {
+  background-color:transparent; 
+  outline:none; 
+  cursor: pointer; 
+  border:none;  
+}
+
+.btn:active {
+  outline: none;
+}
+
 
 #myInput {
   font-size: 200%;
   display: block;
   height: 200%;
-	width: 50%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 5%;
   margin-bottom: 5%;
   border: none;
   border-bottom: 3px solid grey;
-	/*position: static;*/
+  /*position: static;*/
 }

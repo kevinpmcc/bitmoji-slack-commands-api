@@ -17,3 +17,11 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+//= require clipboard
+//
+$(document).ready(function(){  
+
+  var clip = new Clipboard('.btn');
+  console.log(clip);
+
+});
