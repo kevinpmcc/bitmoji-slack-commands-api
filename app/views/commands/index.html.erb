@@ -1,22 +1,25 @@
 <div id="search-box">
-<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for commands.." autofocus>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for commands.." autofocus>
 </div>
 <ul id='command-list'>
-
-<div class="card-deck-wrapper">
-  <div class="card-deck">
-  <% Command.all.each do |command| %>
-    <li class='command-item'>
-      <div class="card">
-        <img class="card-img-top" src=<%= command.img_url %> alt=<% command.name %>/>
-        <div class="card-block">
-          <h4 id="command-name"><%= command.name %></h4>
+  <div class="card-deck-wrapper">
+    <div class="card-deck">
+      <% Command.all.each do |command| %>
+        <div  class="btn" data-clipboard-action="copy" data-clipboard-text="/bitmoji <%= command.name %> " data-copied-hint="Copied '/bitmoji <%= command.name %>'">
+            <li class='command-item'>
+              <div class="card"> 
+                <img class="card-img-top" src=<%= command.img_url %> alt=<% command.name %>/>
+                <div class="card-block">
+                  <div class="command-name"> 
+                    <%= command.name %>
+                  </div>
+                </div>
+              </div>
+            </li>
         </div>
-      </div>
-    </li>
-  <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </ul>
 <script>
 function myFunction() {
