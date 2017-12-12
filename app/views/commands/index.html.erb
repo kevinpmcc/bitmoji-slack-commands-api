@@ -1,5 +1,5 @@
 <div id="search-box">
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for commands.." autofocus>
+  <input type="text" id="myInput" onkeyup="filterCommands()" placeholder="Search for commands.." autofocus>
 </div>
 <ul id='command-list'>
   <div class="card-deck-wrapper">
@@ -22,8 +22,7 @@
   </div>
 </ul>
 <script>
-function myFunction() {
-  console.log('something')
+function filterCommands() {
     // Declare variables
     var input, filter, ul, li, h4, i;
   input = document.getElementById('myInput');
