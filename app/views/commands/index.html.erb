@@ -4,8 +4,9 @@
 <ul id='command-list'>
   <div class="card-deck-wrapper">
     <div class="card-deck">
-      <% Command.all.each do |command| %>
-        <div  class="btn" data-clipboard-action="copy" data-clipboard-text="/bitmoji <%= command.name %> " data-copied-hint="Copied '/bitmoji <%= command.name %>'">
+      <% cache Command.all do %>
+        <% Command.all.each do |command| %>
+          <div  class="btn" data-clipboard-action="copy" data-clipboard-text="/bitmoji <%= command.name %> " data-copied-hint="Copied '/bitmoji <%= command.name %>'">
             <li class='command-item'>
               <div class="card"> 
                 <img class="card-img-top" src=<%= command.img_url %> alt=<% command.name %>/>
@@ -16,7 +17,8 @@
                 </div>
               </div>
             </li>
-        </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
